@@ -40,7 +40,7 @@ app.configure(function(){
 
 
 /* MongoDB Connection */
-var url = 'mongodb://localhost:1337/frontend';
+var url = 'mongodb://localhost:27017/frontend';
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 
@@ -161,6 +161,6 @@ function ensureAuthenticated(req, res, next) {
 }
 
 
-app.listen(3000, function(){
+app.listen(3000, '100.76.86.178', function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });

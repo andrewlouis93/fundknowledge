@@ -18,8 +18,12 @@ var assert = require('assert');
 
 MongoClient.connect(url, function(err, db) {
 	 
-	 var People = db.collection('Person');
-	 var NGOs = db.collection('NGO');
+	 var People, NGOs;
+	try { People = db.collection('Person');
+	NGOs = db.collection('NGO');
+	} catch (e) {
+	
+}
 
 	exports.person = function(req, res){
 		var person_id = req.params.person_id;
