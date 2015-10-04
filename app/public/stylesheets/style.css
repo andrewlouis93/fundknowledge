@@ -1,3 +1,36 @@
+@media(max-width:767px){
+  .navbar-collapse .navbar-nav li:last-child{
+    margin-bottom:42px;
+  }
+}
+
+.reduced-divider{
+  margin: 38px 0px !important;
+}
+
+.img-center{
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.img-ctr{
+  width: 24%;
+  display: inline-block;
+}
+
+.img-ctr .img-circle{
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+    height: 75%;
+}
+
+.jumbo-lift{
+  margin-top:-49px;
+}
+
 .top-offset{
   margin-top: 40px;
 }
@@ -161,3 +194,4 @@ body {
     margin-top: 120px;
   }
 }
+
