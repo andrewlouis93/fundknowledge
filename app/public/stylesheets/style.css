@@ -1,3 +1,32 @@
+.top-offset{
+  margin-top: 40px;
+}
+
+.form-offset{
+  margin-top:40px;
+}
+
+.inputImage{
+  background: black;
+  width:45%;
+  height:500px;
+  position:absolute;
+  right:0px;
+}
+.inputImage:hover{
+  cursor: pointer;
+}
+
+.form-horizontal{
+  position:relative;
+}
+
+.btn-broad{
+  margin-top:20px;
+  width:100%;
+}
+
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
