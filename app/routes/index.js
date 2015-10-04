@@ -4,14 +4,12 @@
 exports.index = function(req, res){
   res.render('index', { title: 'Express' })
 };
-
-
 exports.addPerson = function(req, res){
 	res.render('addPerson');
 };
 exports.addNGO = function(req, res){
 	res.render('addNGO');
-}
+};
 
 var url = 'mongodb://localhost:1337/frontend';
 var MongoClient = require('mongodb').MongoClient;
@@ -50,7 +48,8 @@ MongoClient.connect(url, function(err, db) {
 			skype: req.body.inputSkype,
 			age: req.body.age, 
 			target: req.body.targetFunds,
-			raised: 0
+			raised: 0,
+			story: req.body.inputStory
 		}
 		People.insert(person);
 		// FLASH MESSAGE
@@ -67,6 +66,21 @@ MongoClient.connect(url, function(err, db) {
 		// FLASH MESSAGE
 		res.redirect('/');
 	};
+
+	exports.login = function(req, res){
+		console.log("HEY");
+		res.render('login');
+	};
+
+	exports.before = function(req, res){
+		res.render('before');
+	};
+
+	exports.after = function(req, res){
+		res.render('after');
+	};	
+
+
 
 });
 

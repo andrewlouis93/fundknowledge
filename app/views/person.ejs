@@ -1,10 +1,75 @@
 <div class="container top-offset">
 	<div class="row">
-		<h1><%- person.name %></h1>
-		<h1><%- person.twitter %></h1>
-		<h1><%- person.skype %></h1>
-		<h1><%- person.age %></h1>
+		<h1 class="center">
+		<%- person.name %> <span class="smaller">/ <%- person.age %> </span> 
+		</h1>
+	</div>
+	<div class="row">
+		<hr class="two-panel-divider featurette-divider">
+
+		<div class="p_img col-md-6">
+			<div style="" id="user_img"></div>
+		</div>
+		<div class="p_img col-md-6">
+			<div id="progress-ctr"></div>
+		</div>
+	</div>
+	<div class="row">
+		<hr class="two-panel-divider-two featurette-divider">
+
 		<h1><%- person.target %></h1>
 		<h1><%- person.raised %></h1>
 	</div>
 </div>
+
+<script>
+	var startColor = '#FC5B3F';
+	var endColor = '#6FD57F';
+
+	var element = document.getElementById('progress-ctr');
+	var circle = new ProgressBar.Circle(element, {
+	    color: startColor,
+	    trailColor: '#eee',
+	    trailWidth: 1,
+	    duration: 2000,
+	    strokeWidth: 5,
+	    text: {
+	        // Initial value for text.
+	        // Default: null
+	        value: "<%- person.raised %>"+' of '+"<%- person.target %>",
+
+	        // Class name for text element.
+	        // Default: 'progressbar-text'
+	        className: 'progressbar__label',
+	        style: {
+	            // Text color.
+	            // Default: same as stroke color (options.color)
+	            color: '#f00',
+	            position: 'absolute',
+	            left: '50%',
+	            top: '50%',
+	            padding: 0,
+	            margin: 0,
+	            // You can specify styles which will be browser prefixed
+	            transform: {
+	                prefix: true,
+	                value: 'translate(-50%, -50%)'
+	            },
+	            'word-spacing': '300px',
+	            'font-size':'2em',
+	            'font-weight':100,
+	            'text-align':'center'
+	        }
+	     },
+	    // Set default step function for all animate calls
+	    step: function(state, circle) {
+	        circle.path.setAttribute('stroke', state.color);
+	    }
+	});
+
+
+	circle.animate( (<%- person.raised %>/<%- person.target %>), {
+	    from: {color: startColor},
+	    to: {color: endColor}
+	});
+</script>

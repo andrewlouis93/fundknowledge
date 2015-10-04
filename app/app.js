@@ -67,7 +67,6 @@ MongoClient.connect(url, function(err, db) {
 
   // Routes
   app.get('/', routes.index);
-
   // Routes to add a person
   app.get('/add/p', routes.addPerson);
   app.post('/add/p', routes.submitPerson);
@@ -78,7 +77,12 @@ MongoClient.connect(url, function(err, db) {
   app.get('/add/org', routes.addNGO);
   app.post('/add/org', routes.submitNGO);
   // Display NGO Information page
-  app.get('/n/:ngo_id', routes.NGO)
+  app.get('/n/:ngo_id', routes.NGO);
+  // Before Payment
+  app.get('/pay/before', routes.before);
+  app.get('/pay/after', routes.after);
+  // Social Auth
+  app.get('/login', routes.login);
 });
 
 
@@ -130,9 +134,9 @@ passport.authenticate('facebook'),
 function(req, res){
 });
 app.get('/auth/facebook/callback',
-passport.authenticate('facebook', { failureRedirect: '' }),
-function(req, res) {
- res.redirect('/account');
+  passport.authenticate('facebook', { failureRedirect: '' }),
+  function(req, res) {
+    res.redirect('/account');
 });
 
 app.get('/auth/google',
