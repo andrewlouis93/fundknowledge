@@ -163,6 +163,6 @@ function ensureAuthenticated(req, res, next) {
 }
 
 
-app.listen(3000, 'localhost', function(){
+app.listen(3000, '100.76.86.178', function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });

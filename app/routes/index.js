@@ -11,7 +11,7 @@ exports.addNGO = function(req, res){
 	res.render('addNGO');
 };
 
-var url = 'mongodb://localhost:1337/frontend';
+var url = 'mongodb://localhost:27017/frontend';
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
 var assert = require('assert');

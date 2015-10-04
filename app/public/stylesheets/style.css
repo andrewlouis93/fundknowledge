@@ -173,9 +173,11 @@ color: white !important;
 }
 
 .jumbo-lift{
-	background-image: url(http://fundknowledge.org/assets/img/Sushma1.jpg);
+    background-size: cover;
+    background-position: 10px -235px;
+    background-image: url(http://fundknowledge.org/assets/img/Sushma1.jpg);
     color: white;
-  margin-top:-49px;
+    margin-top: -49px;
 }
 
 .top-offset{
