@@ -1,4 +1,8 @@
 
+.jumbotron{
+
+}
+
 .jumbo-text{
   position: relative;
   margin-top: 20%;
@@ -121,6 +125,11 @@
 .two-panel-divider-two{
   margin: 0 !important;
 }
+
+.two-panel-divider-three{
+  margin: 45px 0px !important;
+}
+
 
 .img-center{
   width: 100%;

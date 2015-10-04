@@ -84,7 +84,9 @@ MongoClient.connect(url, function(err, db) {
 		res.render('after');
 	};	
 
-
+	exports.shushma = function(req, res){
+		res.render('shushma');
+	};	
 
 });
 

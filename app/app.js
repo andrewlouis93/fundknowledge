@@ -40,7 +40,7 @@ app.configure(function(){
 
 
 /* MongoDB Connection */
-var url = 'mongodb://localhost:27017/frontend';
+var url = 'mongodb://localhost:1337/frontend';
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 
@@ -72,6 +72,8 @@ MongoClient.connect(url, function(err, db) {
   app.post('/add/p', routes.submitPerson);
   // Display Person Information page
   app.get('/p/:person_id', routes.person);
+
+  app.get('/shushma', routes.shushma);
 
   // Routes to add an NGO
   app.get('/add/org', routes.addNGO);
@@ -161,6 +163,6 @@ function ensureAuthenticated(req, res, next) {
 }
 
 
-app.listen(3000, '100.76.86.178', function(){
+app.listen(3000, 'localhost', function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
