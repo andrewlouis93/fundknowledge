@@ -1,18 +1,26 @@
-
 /**
  * Module dependencies.
  */
-
 var express = require('express')
-  , routes = require('./routes');
-
+var routes = require('./routes');
 var app = module.exports = express.createServer();
 
-// Configuration
+/* MongoDB Connection */
+var url = 'mongodb://localhost:27017/frontend';
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
 
+// Use connect method to connect to the Server 
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected correctly to server");
+  db.close();
+});
+
+// Configuration
 app.configure(function(){
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
+  app.set('view engine', 'ejs');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -28,7 +36,6 @@ app.configure('production', function(){
 });
 
 // Routes
-
 app.get('/', routes.index);
 
 app.listen(3000, function(){
